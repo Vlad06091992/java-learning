@@ -1,3 +1,4 @@
+import transport.Transport;
 
 public class Cat {
 
@@ -33,22 +34,16 @@ public class Cat {
         return totalWeight;
     }
 
-    //конструктор класса
-    public Cat() {
+    public Cat(String name, double weight, double minWeight, double maxWeight   ) {
         updateCount();
-        this.weight = 1500.0 + 3000.0 * Math.random();
-        originWeight = weight;
-        minWeight = 1000.0;
-        maxWeight = 9000.0;
-
+        this.name = name;
+        this.weight = weight;
+        this.minWeight = minWeight;
+        this.maxWeight = maxWeight;
     }
 
-    //второй конструктор
-    public Cat(String name) {
-        //вызов первого конструктора
-        this();
-        this.name = name;
-
+    public Cat copyCat(){
+        return new Cat(name, weight, minWeight, maxWeight);
     }
 
     public void meow() {
@@ -72,8 +67,14 @@ public class Cat {
         return weight;
     }
 
+    //геттер
     public String getName() {
         return name;
+    }
+
+    //геттер
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void showArgumentString(String arg) {

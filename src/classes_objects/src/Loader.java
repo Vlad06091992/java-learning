@@ -1,11 +1,15 @@
+import transport.Transport;
 
 public class Loader {
     public static void main(String[] args) {
-        Cat cat = new Cat();
+        Cat cat = new Cat("Федя",4450.0,900,90000);
+        Cat copyFedya = cat.copyCat();
+
+        System.out.println("Имя копиии Феди " + copyFedya.getName());
 
         System.out.println(cat.getStatus());
 
-        Cat murka = new Cat("Мурка");
+        Cat murka = new Cat("Мурка",1000.0,900,90000);
 
         System.out.println("имя кошки: " + murka.getName());
         murka.setTransportType(Transport.BUS);
