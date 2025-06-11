@@ -1,6 +1,9 @@
 
 public class Cat {
 
+    //статическая переменная, константаы
+    public static final int LEGS_COUNT = 4;
+
     //статическая переменная
     public static double totalWeight = 10000;
     public static int count = 0;
@@ -16,6 +19,7 @@ public class Cat {
     //переменные
     private double originWeight;
     private double weight;
+    public Transport transport;
 
     private double minWeight;
     private double maxWeight;
@@ -40,6 +44,10 @@ public class Cat {
     public void meow() {
         weight = weight - 1;
         System.out.println("Meow");
+    }
+
+    public void setTransportType (Transport transport){
+        this.transport = transport;
     }
 
     public void feed(Double amount) {
