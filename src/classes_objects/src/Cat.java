@@ -23,6 +23,7 @@ public class Cat {
 
     private double minWeight;
     private double maxWeight;
+    private String name;
     public int age = 0;
     // неизменяемая переменна(типа const в JS)
     private final int typenimal = 1;
@@ -32,12 +33,21 @@ public class Cat {
         return totalWeight;
     }
 
+    //конструктор класса
     public Cat() {
         updateCount();
         this.weight = 1500.0 + 3000.0 * Math.random();
         originWeight = weight;
         minWeight = 1000.0;
         maxWeight = 9000.0;
+
+    }
+
+    //второй конструктор
+    public Cat(String name) {
+        //вызов первого конструктора
+        this();
+        this.name = name;
 
     }
 
@@ -60,6 +70,10 @@ public class Cat {
 
     public Double getWeight() {
         return weight;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void showArgumentString(String arg) {

@@ -5,7 +5,9 @@ public class Loader {
 
         System.out.println(cat.getStatus());
 
-        Cat murka = new Cat();
+        Cat murka = new Cat("Мурка");
+
+        System.out.println("имя кошки: " + murka.getName());
         murka.setTransportType(Transport.BUS);
 
         System.out.println("murka.transport:" + murka.transport);
