@@ -1,4 +1,4 @@
 public class Computer {
     // поле в виде объекта
-    public Processor processor;
+    public Processor processor = new Processor();
 }

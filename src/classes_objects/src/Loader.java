@@ -6,6 +6,10 @@ public class Loader {
         System.out.println(cat.getStatus());
 
         Cat murka = new Cat();
+
+
+        System.out.println("Количество кошек:" + Cat.count);
+
         double weight = murka.getWeight();
          murka.showArgumentString("аргумент");
         System.out.println("murka weight:" + weight);
@@ -21,6 +25,17 @@ public class Loader {
 
          System.out.println("Длина newString: "  + newString.length());
 
+
+         murka.drink(murka.getWeight() / 1000);
+
+
+         //вызов статического метода
+        System.out.println( Cat.getTotalWeight());
+
+        //вызов не статического метода для обращения к статическому свойству
+        System.out.println( Cat.getTotalWeightNoStatic());
+
+//статические методы должны использовать статические переменные
 
     }
 }
