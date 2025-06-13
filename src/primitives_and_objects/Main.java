@@ -1,41 +1,28 @@
 package primitives_and_objects;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-//     int a = 3;
-//     int b = 2;
+//        String string = "456534.5485748";
+
+
+//        //точное преобразование в число
+//        Double doubleNumber = Double.parseDouble(string);
+//        System.out.println(doubleNumber);
 //
-//     //1
-//     int c = a / b;
-//     System.out.println(c);
+//        //неточное преобразование в число
+//        Float floatNumber = Float.parseFloat(string);
+//        System.out.println(floatNumber);
 
-//        double a = 3;
-//        double b = 2;
-//
-//        //1.5
-//        double c = a / b;
+//        Scanner scanner = new Scanner(System.in);
+//        String number = scanner.nextLine();
+//        System.out.println(Integer.parseInt(number));
 
-        int a = 3;
-        int b = 2;
+//        преобразование в строку
 
-        //1.5, приведение a к double
-        double c = (double) a / b;
-
-        System.out.println(c);
-
-//
-//        //пример неверного приведения так как число не помещается в int
-//        long time = System.currentTimeMillis();
-//        System.out.println(time);
-//        System.out.println((int) time);
-
-        //пример верного приведения так как число помещается в int
-        long timeLong = System.currentTimeMillis();
-        long time = System.currentTimeMillis() / 1000;
-        System.out.println(timeLong);
-        System.out.println(time);
-        System.out.println((int) time);
-
-
+        Integer a = -2343242;
+        String str = a.toString();
+        System.out.println(str);
     }
 }
