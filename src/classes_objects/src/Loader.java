@@ -1,16 +1,18 @@
 package classes_objects.src;//import transport.Transport;
+
 import classes_objects.src.transport.Transport;
 
 public class Loader {
     public static void main(String[] args) {
-        Cat cat = new Cat("Федя",4450.0,900,90000);
+        // новый объект
+        Cat cat = new Cat("Федя", 4450.0, 900, 90000);
         Cat copyFedya = cat.copyCat();
 
         System.out.println("Имя копиии Феди " + copyFedya.getName());
 
         System.out.println(cat.getStatus());
 
-        Cat murka = new Cat("Мурка",1000.0,900,90000);
+        Cat murka = new Cat("Мурка", 1000.0, 900, 90000);
 
         System.out.println("имя кошки: " + murka.getName());
         murka.setTransportType(Transport.BUS);
@@ -44,7 +46,7 @@ public class Loader {
         //вызов не статического метода для обращения к статическому свойству
         System.out.println(Cat.getTotalWeightNoStatic());
 
-//статические методы должны использовать статические переменные
+        //статические методы должны использовать статические переменные
 
     }
 }
