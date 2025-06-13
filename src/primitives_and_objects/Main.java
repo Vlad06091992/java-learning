@@ -2,12 +2,15 @@ package primitives_and_objects;
 
 public class Main {
     public static void main(String[] args) {
-    // бит 1 или 0
-    // байт 10011101
+        double a = 24.;
+        double b = 0.1;
 
-    }
+        // 2.4000000000000004
+        System.out.println(a * b);
 
-    private static boolean compareIntegers(Integer int1, Integer int2) {
-        return int1.equals(int2);
+
+        //для точных вычислений используем
+        java.math.BigDecimal
+        java.math.BigInteger
     }
 }
