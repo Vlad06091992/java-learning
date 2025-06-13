@@ -2,23 +2,8 @@ package primitives_and_objects;
 
 public class Main {
     public static void main(String[] args) {
-        //типы целых чисел
-/*
-        byte
-        int
-        short
-        long
-
-*/
-
-        //типы дробных чисел
-
-        /*
-        float
-       double
-
-       */
-
+    // бит 1 или 0
+    // байт 10011101
 
     }
 
