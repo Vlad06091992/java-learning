@@ -1,29 +1,28 @@
 package primitives_and_objects;
 
-import classes_objects.src.Cat;
-import classes_objects.src.Processor;
-
-import javax.swing.plaf.synth.SynthScrollBarUI;
-
 public class Main {
     public static void main(String[] args) {
+        //типы целых чисел
+/*
+        byte
+        int
+        short
+        long
 
-        Integer age = 5;
-        int age2 = 6;
+*/
 
+        //типы дробных чисел
 
-        //свойство у объекта
-        System.out.println(age.byteValue());
+        /*
+        float
+       double
 
+       */
 
-        //анбоксинг при сравнении
-        System.out.println(age == age2);
-
-        System.out.println(compareIntegers(3,5));
 
     }
 
-    private static boolean compareIntegers(Integer int1, Integer int2){
-        return  int1.equals(int2);
+    private static boolean compareIntegers(Integer int1, Integer int2) {
+        return int1.equals(int2);
     }
 }
