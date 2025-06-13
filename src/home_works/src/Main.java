@@ -26,16 +26,16 @@ public class Main {
 
     public static void maxMinValue() {
 
-        byte a = 10;
+        Byte a = 10;
         System.out.println(a instanceof Byte);
 
-        int b = 10;
+        Integer b = 10;
         System.out.println(b instanceof Integer);
 
-        short c = 10;
+        Short c = 10;
         System.out.println(c instanceof Short);
 
-        long d = 10;
+        Long d = 10L;
         System.out.println(d instanceof Long);
 
         System.out.println(Byte.MAX_VALUE);
@@ -50,17 +50,17 @@ public class Main {
         System.out.println(Long.MAX_VALUE);
         System.out.println(Long.MIN_VALUE);
 
-        float e = 10;
+        Float e = 10f;
         System.out.println(e instanceof Float);
 
-        double f = 10;
+        Double f = 10.0;
         System.out.println(f instanceof Double);
-
 
         System.out.println(Float.MAX_VALUE);
         System.out.println(Float.MIN_VALUE);
 
         System.out.println(Double.MAX_VALUE);
         System.out.println(Double.MIN_VALUE);
+
     }
 }

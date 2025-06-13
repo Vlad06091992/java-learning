@@ -4,25 +4,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        String string = "456534.5485748";
 
 
-//        //точное преобразование в число
-//        Double doubleNumber = Double.parseDouble(string);
-//        System.out.println(doubleNumber);
-//
-//        //неточное преобразование в число
-//        Float floatNumber = Float.parseFloat(string);
-//        System.out.println(floatNumber);
+        int a = 10 + 2;
+        int b = 10 - 2;
+        int c = 10 * 2;
+        int d = 10 / 2;
+        int e = 10 % 3;
 
-//        Scanner scanner = new Scanner(System.in);
-//        String number = scanner.nextLine();
-//        System.out.println(Integer.parseInt(number));
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
+        System.out.println("d = " + d);
+        System.out.println("e = " + e);
 
-//        преобразование в строку
 
-        Integer a = -2343242;
-        String str = a.toString();
-        System.out.println(str);
     }
 }
