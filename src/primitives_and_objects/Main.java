@@ -51,40 +51,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-
-        //сравнение по значению
-
-        int first = 25;
-        int second = 25;
-
-        Integer firstInt = 25;
-        Integer seconfInt = 26;
-
-        //методы для сравнения объектов compareTo
-        System.out.println(firstInt.compareTo(seconfInt));
-
-        //методы для сравнения объектов equals
-        System.out.println(firstInt.equals(seconfInt));
-
-        //сравнение по значению примитивов
-        System.out.println(first == second);
-
-        //сравнение(unboxing)
-        System.out.println(first == firstInt);
-
-        Cat cat = new Cat("Федя", 4450.0, 900, 90000);
-
-        //сравнение по ссылке
-        Cat cat2 = cat;
-
-        cat2.drink(100.);
-
-
-        //обе кошки попили по факту из-за того что одна ссылка
-        System.out.println(cat.getWeight() == cat2.getWeight());
-
-
-        System.out.println(cat2 == cat);
-
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.parseInt("234534"));
     }
 }
