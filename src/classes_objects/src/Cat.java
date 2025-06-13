@@ -1,4 +1,7 @@
-import transport.Transport;
+package classes_objects.src;
+
+
+import classes_objects.src.transport.Transport;
 
 public class Cat {
 

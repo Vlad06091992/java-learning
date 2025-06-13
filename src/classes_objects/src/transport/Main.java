@@ -1,4 +1,5 @@
-package transport;
+package classes_objects.src.transport;
+
 import com.skillbox.airport.Airport;
 
 public class Main {
