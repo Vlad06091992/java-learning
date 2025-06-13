@@ -51,7 +51,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.parseInt("234534"));
+        Cat cat = new Cat("Федя", 4450.0, 900, 90000);
+        //пример дефолтного значения
+        System.out.println(cat.originWeight);
+
     }
 }

@@ -21,7 +21,7 @@ public class Cat {
     }
 
     //переменные
-    private double originWeight;
+    public double originWeight;
     private double weight;
     public Transport transport;
 
