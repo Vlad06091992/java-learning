@@ -4,19 +4,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String text = "какой-то текст";
-        System.out.println(text.length());
-        System.out.println(text.indexOf('о'));
-        System.out.println(text.lastIndexOf('о'));
+        String a = "Дмитрий";
+        String b = "Василий";
+        if (true) {
+            long start = System.currentTimeMillis();
 
-        int spaceIndex = text.indexOf(' ');
+            for (int i = 0; i < 80000; i++) {
+                a += b;
+            }
 
-        System.out.println(text.substring(0,spaceIndex + 1));
-        System.out.println(text.substring(spaceIndex + 1));
+            long end = System.currentTimeMillis();
 
-        String text_text = "     какой-то текст                 ";
-        System.out.println(text_text.trim());
+            //Duration:3754ms
+            System.out.println(a.length()); //560007
+            System.out.println("Duration: " + (end - start) + "ms");
+        } else {
+            long start = System.currentTimeMillis();
 
+            StringBuilder builder = new StringBuilder();
+
+            builder.append(a);
+
+            for (int i = 0; i < 80000; i++) {
+                builder.append(b);
+            }
+
+            long end = System.currentTimeMillis();
+
+            //Duration:7ms
+            System.out.println(builder.length()); //560007
+            System.out.println("Duration: " + (end - start) + "ms");
+        }
     }
 
 
