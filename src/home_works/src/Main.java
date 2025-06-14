@@ -2,65 +2,53 @@ package home_works.src;
 
 public class Main {
     public static void main(String[] args) {
-        Container container = new Container();
-        container.count += 7843;
 
-//        System.out.println(sumDigits(567));
-//        System.out.println(maxMinValue());
-        maxMinValue();
-
+        printLogisticsInfo(800);
     }
 
-    public static int sumDigits(Integer number) {
-        int result = 0;
+    public static void printLogisticsInfo(Integer boxes) {
+        final int truckContainerCapacity = 12;
+        final int boxCapacityInContainer = 27;
+        double trucks = Math.ceil(800 / 324.);
+        final int trucksCount = (int) Math.max(trucks, 1);
 
-        String str = Integer.toString(number);
-        for (int i = 0; i < str.length(); i++) {
-            int curr = str.charAt(i) - '0';
+        boolean isExit = false;
 
-            result += curr;
+        int containerNumber = 0;
+        int boxNumber = 0;
+
+        for (int i = 1; i <= trucksCount; i++) {
+            System.out.println("Грузовик номер:" + i);
+
+            for (int j = 1; j <= truckContainerCapacity; j++) {
+                System.out.println("     Контейнер номер:" + (containerNumber + j));
+
+                if (isExit) break;
+
+                if (j == truckContainerCapacity) {
+                    containerNumber = j + containerNumber;
+                }
+
+
+                for (int k = 1; k <= boxCapacityInContainer; k++) {
+                    System.out.println("          Ящик номер:" + (boxNumber + k));
+
+                    if (boxNumber + k == boxes) {
+                        isExit = true;
+                        break;
+                    }
+
+                    if (k == boxCapacityInContainer) {
+                        boxNumber = k + boxNumber;
+                        break;
+                    }
+
+                }
+
+            }
+
         }
-
-        return result;
     }
 
-    public static void maxMinValue() {
 
-        Byte a = 10;
-        System.out.println(a instanceof Byte);
-
-        Integer b = 10;
-        System.out.println(b instanceof Integer);
-
-        Short c = 10;
-        System.out.println(c instanceof Short);
-
-        Long d = 10L;
-        System.out.println(d instanceof Long);
-
-        System.out.println(Byte.MAX_VALUE);
-        System.out.println(Byte.MIN_VALUE);
-
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
-
-        System.out.println(Short.MAX_VALUE);
-        System.out.println(Short.MIN_VALUE);
-
-        System.out.println(Long.MAX_VALUE);
-        System.out.println(Long.MIN_VALUE);
-
-        Float e = 10f;
-        System.out.println(e instanceof Float);
-
-        Double f = 10.0;
-        System.out.println(f instanceof Double);
-
-        System.out.println(Float.MAX_VALUE);
-        System.out.println(Float.MIN_VALUE);
-
-        System.out.println(Double.MAX_VALUE);
-        System.out.println(Double.MIN_VALUE);
-
-    }
 }
