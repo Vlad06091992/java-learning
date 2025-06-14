@@ -1,53 +1,79 @@
 package home_works.src;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-
-        printLogisticsInfo(800);
+//        getSum("Вася заработал 5000 рублей, Маша - 30000 рублей, а Петя - 7563 рубля");
+        getFullname();
     }
 
-    public static void printLogisticsInfo(Integer boxes) {
-        final int truckContainerCapacity = 12;
-        final int boxCapacityInContainer = 27;
-        double trucks = Math.ceil(800 / 324.);
-        final int trucksCount = (int) Math.max(trucks, 1);
+    public static void getSum(String string) {
 
-        boolean isExit = false;
+        int result = 0;
 
-        int containerNumber = 0;
-        int boxNumber = 0;
+        String[] words = string.split(" ");
 
-        for (int i = 1; i <= trucksCount; i++) {
-            System.out.println("Грузовик номер:" + i);
-
-            for (int j = 1; j <= truckContainerCapacity; j++) {
-                System.out.println("     Контейнер номер:" + (containerNumber + j));
-
-                if (isExit) break;
-
-                if (j == truckContainerCapacity) {
-                    containerNumber = j + containerNumber;
-                }
-
-
-                for (int k = 1; k <= boxCapacityInContainer; k++) {
-                    System.out.println("          Ящик номер:" + (boxNumber + k));
-
-                    if (boxNumber + k == boxes) {
-                        isExit = true;
-                        break;
-                    }
-
-                    if (k == boxCapacityInContainer) {
-                        boxNumber = k + boxNumber;
-                        break;
-                    }
-
-                }
+        for (String word : words) {
+            try {
+                result += Integer.parseInt(word);
+            } catch (Exception e) {
+                System.out.println(e);
 
             }
 
         }
+
+        System.out.println(result);
+
+    }
+
+
+    public static void getFullname() {
+        int index = 0;
+        String res = "";
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+
+        String[] array = userInput.split(" ");
+        String field = "";
+        for (String word : array) {
+            switch (index) {
+                case 0:
+                    field = Words.lAST_NAME.getRussianName();
+                    break;
+                case 1:
+                    field = Words.FIRST_NAME.getRussianName();
+                    break;
+                case 2:
+                    field = Words.PATRONYMIC.getRussianName();
+                    break;
+            }
+
+            res += field + ": " + (word.length() > 1 ? word : "Инициалы " + word) + "\n";
+            index++;
+        }
+
+        System.out.println(res);
+    }
+
+    public enum Words {
+        FIRST_NAME("Имя"),
+        lAST_NAME("Фамилия"),
+        PATRONYMIC("Отчество");
+
+        private String russianName;
+
+        Words(String russianName) {
+            this.russianName = russianName;
+        }
+
+        public String getRussianName(
+        ) {
+            return this.russianName;
+
+        }
+
     }
 
 
