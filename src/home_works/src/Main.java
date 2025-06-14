@@ -4,8 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        getSum("Вася заработал 5000 рублей, Маша - 30000 рублей, а Петя - 7563 рубля");
+        getSum("Вася заработал 5000 рублей, Маша - 30000 рублей, а Петя - 7563 рубля");
         getFullname();
+
+        for(Words word: Words.values()){
+            System.out.println(word.getRussianName());
+        }
+
     }
 
     public static void getSum(String string) {
