@@ -6,35 +6,17 @@ public class Main {
     public static void main(String[] args) {
         String a = "Дмитрий";
         String b = "Василий";
-        if (true) {
-            long start = System.currentTimeMillis();
 
-            for (int i = 0; i < 80000; i++) {
-                a += b;
-            }
+        //проверка на то что они одинаковы
+        System.out.println(a.equals(b));
 
-            long end = System.currentTimeMillis();
+        //используется для сравнения двух строк лексикографически
+        System.out.println(a.compareTo(b));
 
-            //Duration:3754ms
-            System.out.println(a.length()); //560007
-            System.out.println("Duration: " + (end - start) + "ms");
-        } else {
-            long start = System.currentTimeMillis();
+        //используется для сравнения двух строк лексикографически без учета регистра
+        System.out.println(a.compareToIgnoreCase(b));
 
-            StringBuilder builder = new StringBuilder();
 
-            builder.append(a);
-
-            for (int i = 0; i < 80000; i++) {
-                builder.append(b);
-            }
-
-            long end = System.currentTimeMillis();
-
-            //Duration:7ms
-            System.out.println(builder.length()); //560007
-            System.out.println("Duration: " + (end - start) + "ms");
-        }
     }
 
 
