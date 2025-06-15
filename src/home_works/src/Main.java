@@ -4,13 +4,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        getSum("Вася заработал 5000 рублей, Маша - 30000 рублей, а Петя - 7563 рубля");
-        getFullname();
+//        getSum("Вася заработал 5000 рублей, Маша - 30000 рублей, а Петя - 7563 рубля");
+//        getFullname();
+//
+//        for (Words word : Words.values()) {
+//            System.out.println(word.getRussianName());
+//        }
 
-        for(Words word: Words.values()){
-            System.out.println(word.getRussianName());
-        }
 
+        parsePhone();
     }
 
     public static void getSum(String string) {
@@ -60,6 +62,33 @@ public class Main {
         }
 
         System.out.println(res);
+    }
+
+    public static void parsePhone() {
+
+
+        String resultPhone = "";
+
+        String phone = "+7962316-34-31";
+        String regex = "\\D";
+
+        String cleanedPhone = phone.replaceAll(regex, "");
+
+
+
+        int length = cleanedPhone.length();
+
+        if (cleanedPhone.matches("^[^78].*") && length == 10) {
+            resultPhone = "+7" + cleanedPhone;
+        } else if(cleanedPhone.charAt(0) == '8' && length == 11) {
+            resultPhone = '+' + cleanedPhone.replaceFirst("^8", "7");
+        } else if(cleanedPhone.charAt(0) == '7' && length == 11) {
+            resultPhone = '+' + cleanedPhone;
+        }
+
+        System.out.println(resultPhone);
+
+
     }
 
     public enum Words {
