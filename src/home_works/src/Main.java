@@ -1,5 +1,9 @@
 package home_works.src;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -12,7 +16,8 @@ public class Main {
 //        }
 
 
-        parsePhone();
+//        parsePhone();
+        getBirthDayDay();
     }
 
     public static void getSum(String string) {
@@ -75,19 +80,38 @@ public class Main {
         String cleanedPhone = phone.replaceAll(regex, "");
 
 
-
         int length = cleanedPhone.length();
 
         if (cleanedPhone.matches("^[^78].*") && length == 10) {
             resultPhone = "+7" + cleanedPhone;
-        } else if(cleanedPhone.charAt(0) == '8' && length == 11) {
+        } else if (cleanedPhone.charAt(0) == '8' && length == 11) {
             resultPhone = '+' + cleanedPhone.replaceFirst("^8", "7");
-        } else if(cleanedPhone.charAt(0) == '7' && length == 11) {
+        } else if (cleanedPhone.charAt(0) == '7' && length == 11) {
             resultPhone = '+' + cleanedPhone;
         }
 
         System.out.println(resultPhone);
 
+
+    }
+
+    public static void getBirthDayDay() {
+
+        int age = 33;
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1992, Calendar.SEPTEMBER, 6);
+        DateFormat dayFormat = new SimpleDateFormat("EEEE");
+
+
+        for (int i = 0; i <= age; i++) {
+            if (i > 0) calendar.add(Calendar.YEAR, 1);
+
+            String day = dayFormat.format(calendar.getTime());
+
+
+            System.out.println("Возраст: " + (i) + " " + day);
+        }
 
     }
 
