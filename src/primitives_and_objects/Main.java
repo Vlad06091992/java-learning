@@ -4,18 +4,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String a = "Дмитрий";
-        String b = "Василий";
+        String phone = "7(962)316-34-31";
 
-        //проверка на то что они одинаковы
-        System.out.println(a.equals(b));
+        System.out.println(phone.replaceAll("[^0-9]", ""));
 
-        //используется для сравнения двух строк лексикографически
-        System.out.println(a.compareTo(b));
+        String text = "Дмитрий петрович ждет Вас.      Выходите через 5 минут";
+        String[] sentences = text.split("\\.\\s+");
 
-        //используется для сравнения двух строк лексикографически без учета регистра
-        System.out.println(a.compareToIgnoreCase(b));
-
+        for (String sentence : sentences) {
+            System.out.println(sentence);
+        }
 
     }
 
