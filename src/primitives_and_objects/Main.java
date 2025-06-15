@@ -1,19 +1,39 @@
 package primitives_and_objects;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String phone = "7(962)316-34-31";
 
-        System.out.println(phone.replaceAll("[^0-9]", ""));
+        //примеры шаблонов для форматирования даты
+        String a = "dd-MM-yyyy";
+        String b = "yyyy-MM-dd";
+        String c = "HH:mm:ss.SSS";
+        String d = "yyyy-MM-dd HH:mm:ss";
+        String e = "yyyy-MM-dd HH:mm:ss.SSS";
+        String f = "yyyy-MM-dd HH:mm:ss.SSS Z";
 
-        String text = "Дмитрий петрович ждет Вас.      Выходите через 5 минут";
-        String[] sentences = text.split("\\.\\s+");
+        DateFormat df = new SimpleDateFormat(f);
 
-        for (String sentence : sentences) {
-            System.out.println(sentence);
-        }
+        Date date = new Date();
+        System.out.println(df.format(date));
+        //работа с календарем
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, 10);
+        calendar.add(Calendar.SECOND, -100);
+
+        // метка времени
+        long timestamp = calendar.getTime().getTime();
+        System.currentTimeMillis();
+
+        System.out.println(df.format(calendar.getTime()));
+
+
+
 
     }
 
