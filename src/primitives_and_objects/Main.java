@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -16,8 +17,9 @@ public class Main {
         String d = "yyyy-MM-dd HH:mm:ss";
         String e = "yyyy-MM-dd HH:mm:ss.SSS";
         String f = "yyyy-MM-dd HH:mm:ss.SSS Z";
+        String g = "EEEE";
 
-        DateFormat df = new SimpleDateFormat(f);
+        DateFormat df = new SimpleDateFormat(g);
 
         Date date = new Date();
         System.out.println(df.format(date));
