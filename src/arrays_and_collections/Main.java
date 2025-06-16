@@ -6,7 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 //        arraysCreate();
-        arraysIterations();
+//        arraysIterations();
+        reverseIteration();
     }
 
     public static void arraysCreate() {
@@ -23,13 +24,13 @@ public class Main {
 
         System.out.println(Arrays.toString(colorsArray));
 
-        int[] roomsCount = {4,6,36,26};
-        String[] colors = {"Красный","Зеленый","Оранжевый","Желтый"};
+        int[] roomsCount = {4, 6, 36, 26};
+        String[] colors = {"Красный", "Зеленый", "Оранжевый", "Желтый"};
 
         // массив определенной длины, остальные значения по умолчанию
         System.out.println(Arrays.toString(roomsCount));
 
-        for (int i = 0; i < colors.length; i++){
+        for (int i = 0; i < colors.length; i++) {
             System.out.println(colors[i]);
         }
 
@@ -37,13 +38,13 @@ public class Main {
 
     public static void arraysIterations() {
 
-        String[] colors = {"Красный","Зеленый","Оранжевый","Желтый"};
+        String[] colors = {"Красный", "Зеленый", "Оранжевый", "Желтый"};
 
 //        for (int i = 0; i < colors.length; i++){
 //            System.out.println(colors[i]);
 //        }
 
-        for(String colorWord: colors){
+        for (String colorWord : colors) {
             System.out.println(colorWord);
         }
 
@@ -51,12 +52,12 @@ public class Main {
 
         int[] winTickets = new int[10];
 
-        for (int i = 0; i < tickets.length; i++){
+        for (int i = 0; i < tickets.length; i++) {
             int value = 1000000 + (int) Math.round(Math.random() * 1000000);
 //            System.out.println(value);
             tickets[i] = value;
 
-            if( i % 100 == 0){
+            if (i % 100 == 0) {
                 winTickets[i / 100] = value;
             }
 
@@ -64,9 +65,49 @@ public class Main {
 
 //        System.out.println(Arrays.toString(winTickets));
 
-    for(int item : winTickets){
-        System.out.println(item);
+        for (int item : winTickets) {
+            System.out.println(item);
+        }
+
+
     }
+
+    public static void reverseIteration() {
+
+        String colorsString = "каждый каждый охотник желает знать знать где сидит фазан";
+        String[] array = colorsString.split(" ");
+
+        System.out.println(Arrays.toString(array));
+
+
+        for (int i = array.length - 1; i >= 0; i--) {
+//            System.out.println(array[i]);
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            String curr = array[i];
+
+
+            if (i > 0) {
+                String prev = array[i - 1];
+
+                if (curr.equals(prev)) {
+                    continue;
+                }
+
+            }
+            System.out.println(curr);
+
+        }
+
+
+        for (int i = 0; i < array.length; i++) {
+            if (i > 0 && array[i].equals(array[i - 1])) {
+                continue;
+            }
+            System.out.println(array[i]);
+
+        }
 
     }
 }
