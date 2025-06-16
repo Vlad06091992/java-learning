@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        arraysCreate();
+//        arraysCreate();
+        arraysIterations();
     }
 
     public static void arraysCreate() {
@@ -31,6 +32,41 @@ public class Main {
         for (int i = 0; i < colors.length; i++){
             System.out.println(colors[i]);
         }
+
+    }
+
+    public static void arraysIterations() {
+
+        String[] colors = {"Красный","Зеленый","Оранжевый","Желтый"};
+
+//        for (int i = 0; i < colors.length; i++){
+//            System.out.println(colors[i]);
+//        }
+
+        for(String colorWord: colors){
+            System.out.println(colorWord);
+        }
+
+        int[] tickets = new int[1000];
+
+        int[] winTickets = new int[10];
+
+        for (int i = 0; i < tickets.length; i++){
+            int value = 1000000 + (int) Math.round(Math.random() * 1000000);
+//            System.out.println(value);
+            tickets[i] = value;
+
+            if( i % 100 == 0){
+                winTickets[i / 100] = value;
+            }
+
+        }
+
+//        System.out.println(Arrays.toString(winTickets));
+
+    for(int item : winTickets){
+        System.out.println(item);
+    }
 
     }
 }
