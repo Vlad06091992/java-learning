@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
 //        arraysCreate();
 //        arraysIterations();
-        reverseIteration();
+//        reverseIteration();
+        nestedArray();
     }
 
     public static void arraysCreate() {
@@ -110,4 +111,23 @@ public class Main {
         }
 
     }
+
+    public static void nestedArray(){
+
+        int[][] array = {{1,2,3,4},{5,6,3,2},{8,6,5,3}};
+
+        for (int i = 0; i < array.length; i++) {
+
+            System.out.println("Class №" + i );
+            System.out.println("Students quantity: " + array[i].length );
+
+            for (int j = 0; j < array[i].length ; j++) {
+                System.out.println(array[i][j]);
+            }
+
+        }
+
+
+    }
+
 }
