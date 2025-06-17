@@ -8,7 +8,8 @@ public class Main {
 //        arraysCreate();
 //        arraysIterations();
 //        reverseIteration();
-        nestedArray();
+//        nestedArray();
+        HW51();
     }
 
     public static void arraysCreate() {
@@ -129,5 +130,25 @@ public class Main {
 
 
     }
+
+
+    public static void HW51() {
+        String[][] matrix = {
+                {"x", " ", " ", " ", " ", " ", "x"},
+                {" ", "x", " ", " ", " ", "x", " "},
+                {" ", " ", "x", "x", "x", " ", " "},
+                {" ", " ", " ", "x", " ", " ", " "},
+                {" ", " ", "x", "x", "x", " ", " "},
+                {" ", "x", " ", " ", " ", "x", " "},
+                {"x", " ", " ", " ", " ", " ", "x"}
+        };
+
+        for (int i = 0; i < matrix.length; i++) {
+            // Присоединение элементов массива в строку с разделителем ""
+            String result = String.join("", matrix[i]);
+            System.out.println(result);
+        }
+    }
+
 
 }
