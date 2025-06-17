@@ -2,6 +2,8 @@ package arrays_and_collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Scanner;
 
 public class Main {
@@ -288,6 +290,25 @@ public class Main {
 
     public enum Commands {
         ADD, DELETE, EDIT, LIST
+    }
+
+    public static void hashSetTreeSetExample(){
+        HashSet<String> wordsHashSet = new HashSet<>();
+
+        wordsHashSet.add("один");
+        wordsHashSet.add("два");
+        wordsHashSet.add("три");
+        wordsHashSet.add("два");
+
+        // элементы хранятся в отсортированном порядке
+        TreeSet<String> wordsTreeSet = new TreeSet<>();
+
+        wordsTreeSet.add("один");
+        wordsTreeSet.add("два");
+        wordsTreeSet.add("три");
+        wordsTreeSet.add("два");
+
+
     }
 
 }
