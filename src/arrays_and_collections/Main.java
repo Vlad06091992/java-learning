@@ -1,5 +1,6 @@
 package arrays_and_collections;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -9,7 +10,8 @@ public class Main {
 //        arraysIterations();
 //        reverseIteration();
 //        nestedArray();
-        HW51();
+//        HW51();
+        ArrayListExample();
     }
 
     public static void arraysCreate() {
@@ -113,16 +115,16 @@ public class Main {
 
     }
 
-    public static void nestedArray(){
+    public static void nestedArray() {
 
-        int[][] array = {{1,2,3,4},{5,6,3,2},{8,6,5,3}};
+        int[][] array = {{1, 2, 3, 4}, {5, 6, 3, 2}, {8, 6, 5, 3}};
 
         for (int i = 0; i < array.length; i++) {
 
-            System.out.println("Class №" + i );
-            System.out.println("Students quantity: " + array[i].length );
+            System.out.println("Class №" + i);
+            System.out.println("Students quantity: " + array[i].length);
 
-            for (int j = 0; j < array[i].length ; j++) {
+            for (int j = 0; j < array[i].length; j++) {
                 System.out.println(array[i][j]);
             }
 
@@ -147,6 +149,43 @@ public class Main {
             // Присоединение элементов массива в строку с разделителем ""
             String result = String.join("", matrix[i]);
             System.out.println(result);
+        }
+    }
+
+    public static void ArrayListExample() {
+
+        ArrayList<String> todolist = new ArrayList<>();
+        ArrayList<String> quickAdd = new ArrayList<>() {{
+            add("раз");
+            add("два");
+            add("три");
+        }};
+
+        quickAdd.add("четыре");
+        quickAdd.remove(2);
+
+        for (String item : quickAdd) {
+            System.out.println(
+                    item
+            );
+        }
+
+        System.out.println(quickAdd.size());
+
+
+        todolist.add("Первое наше дело");
+        //список сдвигается
+        todolist.add(0, "Второе наше дело");
+        // выбросится исклоючение так как добавлять можно либо в конец, либо в существующий индекс
+//        todolist.add(5,"Второе наше дело");
+
+        for (int i = 0; i < todolist.size(); i++) {
+            System.out.println(todolist.get(i));
+
+        }
+
+        for (String item : todolist) {
+            System.out.println(item);
         }
     }
 
