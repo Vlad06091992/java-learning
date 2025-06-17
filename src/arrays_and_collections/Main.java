@@ -2,8 +2,11 @@ package arrays_and_collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
+
+     private static final ArrayList<String> todolist = new ArrayList<>();
 
     public static void main(String[] args) {
 //        arraysCreate();
@@ -11,7 +14,12 @@ public class Main {
 //        reverseIteration();
 //        nestedArray();
 //        HW51();
-        ArrayListExample();
+//        ArrayListExample();
+
+        while (true){
+            HW52();
+        }
+
     }
 
     public static void arraysCreate() {
@@ -189,5 +197,97 @@ public class Main {
         }
     }
 
+    public static void HW52() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите команду:");
+        String userInput = scanner.nextLine();
+
+
+        String[] words = userInput.split(" ");
+
+        String command = words[0];
+
+        System.out.println(command.equalsIgnoreCase(String.valueOf(Commands.LIST)));
+
+        if (command.equalsIgnoreCase(String.valueOf(Commands.ADD))) {
+
+            try {
+                if (words.length > 2) {
+
+                    String index = words[1];
+
+                    try {
+                        if( Integer.parseInt(index) <= todolist.size()){
+                            String[] business = Arrays.copyOfRange(words, 2, words.length);
+                        int numIndex = Integer.parseInt(index);
+                        todolist.add(numIndex, String.join(" ", business));
+                        System.out.println("todolist size after added: " + todolist.size());
+                        } else {
+                            System.out.println("Не могу вставить строку так индекс не соответствует размеру списка");
+                        }
+                    } catch (Exception e){
+                        String[] business = Arrays.copyOfRange(words, 1, words.length);
+                        todolist.add(String.join(" ", business));
+                        System.out.println("todolist size after added: " + todolist.size());
+                    }
+                }
+
+                if (words.length == 2) {
+                    String business = words[1];
+                    todolist.add(business);
+                    System.out.println("todolist size after added: " + todolist.size());
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+
+        } else if (command.equalsIgnoreCase(String.valueOf(Commands.DELETE))) {
+
+            try {
+                String index = words[1];
+                int numIndex = Integer.parseInt(index);
+                todolist.remove(numIndex);
+            } catch(Exception e){
+                System.out.println("Не получилось удалить элемент");
+            }
+        } else if (command.equalsIgnoreCase(String.valueOf(Commands.LIST))) {
+
+            System.out.println("LIST_COMMAND");
+            System.out.println("todolist size : " + todolist.size());
+
+
+            for (int i = 0; i < todolist.size(); i++) {
+                System.out.println(i + ": " + todolist.get(i));
+            }
+
+        } else if (command.equalsIgnoreCase(String.valueOf(Commands.EDIT))) {
+
+
+
+            try {
+                String index = words[1];
+                if( Integer.parseInt(index) <= todolist.size()){
+                    String[] business = Arrays.copyOfRange(words, 2, words.length);
+                    int numIndex = Integer.parseInt(index);
+                    todolist.set(numIndex, String.join(" ", business));
+                    System.out.println("todolist size after added: " + todolist.size());
+                } else {
+                    System.out.println("Не могу вставить строку так индекс не соответствует размеру списка");
+                }
+
+            } catch (Exception e){
+                System.out.println("Не удалось обновить документ");
+            }
+
+        }
+
+
+    }
+
+    public enum Commands {
+        ADD, DELETE, EDIT, LIST
+    }
 
 }
