@@ -5,10 +5,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
      private static final ArrayList<String> todolist = new ArrayList<>();
+     private static final HashSet<String> emails = new HashSet<>();
 
     public static void main(String[] args) {
 //        arraysCreate();
@@ -19,7 +22,8 @@ public class Main {
 //        ArrayListExample();
 
         while (true){
-            HW52();
+//            HW52();
+            HW53();
         }
 
     }
@@ -209,8 +213,6 @@ public class Main {
 
         String command = words[0];
 
-        System.out.println(command.equalsIgnoreCase(String.valueOf(Commands.LIST)));
-
         if (command.equalsIgnoreCase(String.valueOf(Commands.ADD))) {
 
             try {
@@ -307,6 +309,46 @@ public class Main {
         wordsTreeSet.add("два");
         wordsTreeSet.add("три");
         wordsTreeSet.add("два");
+
+
+    }
+
+    public static void HW53(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите команду:");
+        String userInput = scanner.nextLine();
+        String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
+        String[] words = userInput.split(" ");
+        String command = words[0];
+
+
+
+        if (command.equalsIgnoreCase(String.valueOf(Commands.LIST))) {
+            for(String email : emails){
+                System.out.println(email);
+            }
+
+        }
+
+        else if (command.equalsIgnoreCase(String.valueOf(Commands.ADD))) {
+
+            String email = words[1];
+
+            // Компилируем регулярное выражение
+            Pattern pattern = Pattern.compile(emailRegex);
+
+            //Matcher для выполнения проверки
+            Matcher matcher = pattern.matcher(email);
+
+            boolean matches = matcher.matches();
+
+            if (matches) {
+                emails.add(email);
+            } else {
+                System.out.println("Введите корректный емайл");
+            }
+        }
 
 
     }
