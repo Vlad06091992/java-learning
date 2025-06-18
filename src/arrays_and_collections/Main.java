@@ -1,17 +1,15 @@
 package arrays_and_collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.TreeSet;
-import java.util.Scanner;
+import com.sun.source.tree.Tree;
+
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
 
-     private static final ArrayList<String> todolist = new ArrayList<>();
-     private static final HashSet<String> emails = new HashSet<>();
+    private static final ArrayList<String> todolist = new ArrayList<>();
+    private static final HashSet<String> emails = new HashSet<>();
 
     public static void main(String[] args) {
 //        arraysCreate();
@@ -20,10 +18,11 @@ public class Main {
 //        nestedArray();
 //        HW51();
 //        ArrayListExample();
+        HashMapExample();
 
-        while (true){
+        while (true) {
 //            HW52();
-            HW53();
+//            HW53();
         }
 
     }
@@ -221,15 +220,15 @@ public class Main {
                     String index = words[1];
 
                     try {
-                        if( Integer.parseInt(index) <= todolist.size()){
+                        if (Integer.parseInt(index) <= todolist.size()) {
                             String[] business = Arrays.copyOfRange(words, 2, words.length);
-                        int numIndex = Integer.parseInt(index);
-                        todolist.add(numIndex, String.join(" ", business));
-                        System.out.println("todolist size after added: " + todolist.size());
+                            int numIndex = Integer.parseInt(index);
+                            todolist.add(numIndex, String.join(" ", business));
+                            System.out.println("todolist size after added: " + todolist.size());
                         } else {
                             System.out.println("Не могу вставить строку так индекс не соответствует размеру списка");
                         }
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         String[] business = Arrays.copyOfRange(words, 1, words.length);
                         todolist.add(String.join(" ", business));
                         System.out.println("todolist size after added: " + todolist.size());
@@ -253,7 +252,7 @@ public class Main {
                 String index = words[1];
                 int numIndex = Integer.parseInt(index);
                 todolist.remove(numIndex);
-            } catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Не получилось удалить элемент");
             }
         } else if (command.equalsIgnoreCase(String.valueOf(Commands.LIST))) {
@@ -269,10 +268,9 @@ public class Main {
         } else if (command.equalsIgnoreCase(String.valueOf(Commands.EDIT))) {
 
 
-
             try {
                 String index = words[1];
-                if( Integer.parseInt(index) <= todolist.size()){
+                if (Integer.parseInt(index) <= todolist.size()) {
                     String[] business = Arrays.copyOfRange(words, 2, words.length);
                     int numIndex = Integer.parseInt(index);
                     todolist.set(numIndex, String.join(" ", business));
@@ -281,7 +279,7 @@ public class Main {
                     System.out.println("Не могу вставить строку так индекс не соответствует размеру списка");
                 }
 
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Не удалось обновить документ");
             }
 
@@ -294,7 +292,7 @@ public class Main {
         ADD, DELETE, EDIT, LIST
     }
 
-    public static void hashSetTreeSetExample(){
+    public static void hashSetTreeSetExample() {
         HashSet<String> wordsHashSet = new HashSet<>();
 
         wordsHashSet.add("один");
@@ -313,7 +311,7 @@ public class Main {
 
     }
 
-    public static void HW53(){
+    public static void HW53() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите команду:");
         String userInput = scanner.nextLine();
@@ -323,15 +321,12 @@ public class Main {
         String command = words[0];
 
 
-
         if (command.equalsIgnoreCase(String.valueOf(Commands.LIST))) {
-            for(String email : emails){
+            for (String email : emails) {
                 System.out.println(email);
             }
 
-        }
-
-        else if (command.equalsIgnoreCase(String.valueOf(Commands.ADD))) {
+        } else if (command.equalsIgnoreCase(String.valueOf(Commands.ADD))) {
 
             String email = words[1];
 
@@ -351,6 +346,47 @@ public class Main {
         }
 
 
+    }
+
+    public static void HashMapExample() {
+//        HashMap<String, Integer> buys = new HashMap<>();
+
+        // отсортировано по аналогии с TreeSet
+        TreeMap<String, Integer> buys = new TreeMap<>();
+        Scanner scanner = new Scanner(System.in);
+
+        if (false) {
+            //положить значение по ключу
+            buys.put("ключ", 3);
+            //достать значение по ключу
+            buys.get("ключ");
+            //удалить значение по ключу
+            buys.remove("ключ");
+        }
+
+        while (true) {
+//        for(;;){
+            String userInput = scanner.nextLine();
+
+            if (userInput.equals(String.valueOf(Commands.LIST))) {
+                showBuys(buys);
+                continue;
+            } else {
+
+                if (buys.containsKey(userInput)) {
+                    buys.put(userInput, buys.get(userInput) + 1);
+                } else {
+                    buys.put(userInput, 1);
+                }
+            }
+
+        }
+    }
+
+    public static void showBuys(Map<String, Integer> map) {
+        for (String key : map.keySet()) {
+            System.out.println(key + ":" + map.get(key));
+        }
     }
 
 }
