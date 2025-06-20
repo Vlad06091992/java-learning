@@ -12,71 +12,49 @@ public class AutoNumbersHW {
 
 
     private static ArrayList<String> carLicensePlates = new ArrayList();
+    private static HashSet<String> carLicensePlatesSet = new HashSet<>();
 
     public static void main(String args[]) {
 
         Arrays.sort(letters);
-
-//        // А З33 АА 197
-//        // СМТВАРОНЕУ
-//
-//        ArrayList<String> list = new ArrayList<>();
-//        HashSet<String> set = new HashSet<>();
-//        set.addAll(list);
-//
-//        Scanner scanner = new Scanner(System.in);
-//        for (; ; ) {
-//            // Прямой перебор list.contains()
-//            // Бинарный поиск Collections.binarySearch()
-//            // TreeSet
-//            // HashSet
-//        }
         prepareСarLicensePlates();
+        carLicensePlatesSet.addAll(carLicensePlates);
+        System.out.println(carLicensePlatesSet.size());
     }
 
     private static void prepareСarLicensePlates() {
-
-
-
-        //пример для быстрой конкатенации строк
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("Hello");
-//        sb.append(", ");
-//        sb.append("world!");
-//        String result = sb.toString();
-
-
-
-
         for (int i = 0; i < letters.length; i++) {
             for (int j = 0; j < numbers.length; j++) {
-                for (int k = 0; k < letters.length; k++) {
                     for (int l = 1; l <= 197; l++) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(letters[i]);
+                        for (int m = 0; m < letters.length; m++) {
+                            for (int n = 0; n < letters.length; n++) {
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(letters[i]);
 
-                        sb.append(j);
-                        sb.append(j);
-                        sb.append(j);
+                                sb.append(j);
+                                sb.append(j);
+                                sb.append(j);
 
-                        sb.append(letters[i]);
-                        sb.append(letters[i]);
+                                sb.append(letters[m]);
+                                sb.append(letters[n]);
 
-                        if(l < 9){
-                            sb.append(String.valueOf(0));
-                            sb.append(String.valueOf(0));
-                            sb.append(String.valueOf(l));
-                        } else if(l < 99) {
-                            sb.append(String.valueOf(0));
-                            sb.append(String.valueOf(l));
+                                if (l < 9) {
+                                    sb.append(String.valueOf(0));
+                                    sb.append(String.valueOf(0));
+                                    sb.append(String.valueOf(l));
+                                } else if (l < 99) {
+                                    sb.append(String.valueOf(0));
+                                    sb.append(String.valueOf(l));
+                                } else {
+                                    sb.append(String.valueOf(l));
+                                }
+
+
+
+                                carLicensePlates.add(sb.toString());
+                            }
                         }
-                        else {
-                            sb.append(String.valueOf(l));
-                        }
-
-                        carLicensePlates.add(sb.toString());
                     }
-                }
 
 
             }
