@@ -1,5 +1,7 @@
 package Expirements;
 
+import inheritance_and_polymorphism.access_modifiers.RectangleExample;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -13,6 +15,12 @@ public class Main {
         System.out.println(Vlad.name);
         System.out.println(Vlad.address.flat);
         System.out.println(Vlad.address.street);
+
+        // в рамках другого пакета не  могу обратиться к protected свойству
+        RectangleExample rectangle = new RectangleExample(90,50);
+//        rectangle.width = 40;
+//
+//        System.out.println(rectangle.width);
 
     }
 }

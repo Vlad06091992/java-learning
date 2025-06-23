@@ -1,12 +1,17 @@
 package inheritance_and_polymorphism;
 
+import java.util.Date;
+
 public class Rectangle {
     public int width;
     public int height;
 
+    private Date dateCreation;
+
     public Rectangle(int width, int height) {
         this.width = width;
         this.height = height;
+        this.setCreationtime();
     }
 
     public int getHeight() {
@@ -29,5 +34,13 @@ public class Rectangle {
 
     public int getSquare() {
         return this.width * this.height;
+    }
+
+    private void setCreationtime() {
+        this.dateCreation = new Date();
+    }
+
+    public void showCreationTime(){
+        System.out.println(this.dateCreation);
     }
 }
