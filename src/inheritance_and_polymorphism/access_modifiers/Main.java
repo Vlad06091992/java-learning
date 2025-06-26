@@ -7,8 +7,7 @@ public class Main {
         rectangle.width = 40;
 
         System.out.println(rectangle.width);
-        Child child = new Child();
-        child.saySecret();
+
 
     }
 }
