@@ -1,6 +1,6 @@
 package inheritance_and_polymorphism;
 
-public class Square extends Rectangle implements Comparable<Square> {
+public class Square extends Rectangle {
 
     Square(int width, int height) {
         super(width, height);
@@ -22,15 +22,5 @@ public class Square extends Rectangle implements Comparable<Square> {
     public void setWidth(int width) {
         this.height = width;
         this.width = width;
-    }
-
-    @Override
-    public int compareTo(Square square) {
-
-        if (this.getWidth() > square.getWidth()) return 1;
-        if (this.getWidth() < square.getWidth()) return -1;
-        if (this.getWidth() == square.getWidth()) return 0;
-
-        return 0;
     }
 }
