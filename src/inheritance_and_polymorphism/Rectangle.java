@@ -1,8 +1,10 @@
 package inheritance_and_polymorphism;
 
+import inheritance_and_polymorphism.interfaces_example.Figure;
+
 import java.util.Date;
 
-public class Rectangle {
+public class Rectangle implements Figure {
     public int width;
     public int height;
 
@@ -42,5 +44,15 @@ public class Rectangle {
 
     public void showCreationTime(){
         System.out.println(this.dateCreation);
+    }
+
+    @Override
+    public double getVisibleHeight() {
+        return 0;
+    }
+
+    @Override
+    public double getVisibleWidth() {
+        return 0;
     }
 }

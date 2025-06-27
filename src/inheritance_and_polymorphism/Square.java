@@ -9,7 +9,7 @@ public class Square extends Rectangle {
         }
     }
 
-    Square(int width) {
+    public Square(int width) {
         super(width, width);
     }
 
