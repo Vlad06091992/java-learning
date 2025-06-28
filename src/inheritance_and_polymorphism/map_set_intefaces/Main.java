@@ -1,3 +1,5 @@
+package inheritance_and_polymorphism.map_set_intefaces;
+
 import java.util.*;
 
 public class Main {
