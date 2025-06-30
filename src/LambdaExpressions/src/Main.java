@@ -31,14 +31,18 @@ public class Main {
 //        });
 
 
-        Collections.sort(staff, (o1, o2) -> {
-            int salary1 = o1.getSalary();
-            int salary2 = o2.getSalary();
-            if (salary1 > salary2) return 1;
-            if (salary1 < salary2) return -1;
-            return o1.getName().compareTo(o2.getName());
+//        Collections.sort(staff, (o1, o2) -> {
+//            int salary1 = o1.getSalary();
+//            int salary2 = o2.getSalary();
+//            if (salary1 > salary2) return 1;
+//            if (salary1 < salary2) return -1;
+//            return o1.getName().compareTo(o2.getName());
+//
+//        });
 
-        });
+
+        //указатель на методы пример
+        Collections.sort(staff, Comparator.comparing(Employee::getSalary));
 
         for (Employee item : staff) {
             System.out.println(item);
