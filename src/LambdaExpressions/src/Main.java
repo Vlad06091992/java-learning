@@ -44,10 +44,16 @@ public class Main {
         //указатель на методы пример
         Collections.sort(staff, Comparator.comparing(Employee::getSalary));
 
-        for (Employee item : staff) {
-            System.out.println(item);
-        }
+//        for (Employee item : staff) {
+//            System.out.println(item);
+//        }
 
+        // forEach example
+        staff.forEach(el -> System.out.println(el));
+        // forEach example with lambda
+
+        staff.forEach(e -> e.setSalary(e.getSalary() + 10000));
+        staff.forEach(System.out::println);
     }
 
     private static ArrayList<Employee> loadStaffFromFile() {
