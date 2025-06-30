@@ -9,7 +9,6 @@ public class Main {
     private static String staffFile = "src/LambdaExpressions/data/staff.txt";
 
 
-
     private static String dateFormat = "dd.MM.yyyy";
 
     public static void main(String[] args) {
@@ -22,12 +21,24 @@ public class Main {
 //
 //            @Override
 //            public int compare(Employee o1, Employee o2) {
-//                return o1.getSalary().compareTo(o2.getSalary());
+//                int salary1 = o1.getSalary();
+//                int salary2 = o2.getSalary();
+//                if (salary1 > salary2) return 1;
+//                if (salary1 < salary2) return -1;
+//                return o1.getName().compareTo(o2.getName());
+//
 //            }
 //        });
 
 
-        Collections.sort(staff, (o1, o2) -> o1.getSalary().compareTo(o2.getSalary()));
+        Collections.sort(staff, (o1, o2) -> {
+            int salary1 = o1.getSalary();
+            int salary2 = o2.getSalary();
+            if (salary1 > salary2) return 1;
+            if (salary1 < salary2) return -1;
+            return o1.getName().compareTo(o2.getName());
+
+        });
 
         for (Employee item : staff) {
             System.out.println(item);
