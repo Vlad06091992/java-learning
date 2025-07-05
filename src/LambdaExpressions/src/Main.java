@@ -17,21 +17,26 @@ public class Main {
         System.out.println("Current working directory: " + System.getProperty("user.dir"));
 
         ArrayList<Employee> staff = loadStaffFromFile();
-        // сортировка
-        staff.stream().sorted(Comparator.comparing(Employee::getSalary)).forEach(System.out::println);
-//        обратная сортировка
 
-        staff.stream()
-                .sorted(Comparator.comparing(Employee::getSalary).reversed())
-                .forEach(System.out::println);
+Integer salariesSum = staff.stream().map(el -> el.getSalary()).filter(el -> el >= 100000).reduce(0, (s1, s2) -> s1 + s2);
 
-//        max
-        var maxSalary = staff.stream().max(Comparator.comparing(Employee::getSalary));
-//       min
-        Optional minSalary = staff.stream().min(Comparator.comparing(Employee::getSalary));
-        System.out.println(maxSalary);
+System.out.println(salariesSum);
 
-        minSalary.ifPresent(System.out::println);
+//        // сортировка
+//        staff.stream().sorted(Comparator.comparing(Employee::getSalary)).forEach(System.out::println);
+////        обратная сортировка
+//
+//        staff.stream()
+//                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+//                .forEach(System.out::println);
+//
+////        max
+//        var maxSalary = staff.stream().max(Comparator.comparing(Employee::getSalary));
+////       min
+//        Optional minSalary = staff.stream().min(Comparator.comparing(Employee::getSalary));
+//        System.out.println(maxSalary);
+//
+//        minSalary.ifPresent(System.out::println);
 
 
         //        //стрим из arrayList
