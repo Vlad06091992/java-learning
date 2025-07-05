@@ -4,8 +4,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Main {
     private static String staffFile = "src/LambdaExpressions/data/staff.txt";
@@ -18,45 +16,15 @@ public class Main {
 
         ArrayList<Employee> staff = loadStaffFromFile();
 
-Integer salariesSum = staff.stream().map(el -> el.getSalary()).filter(el -> el >= 100000).reduce(0, (s1, s2) -> s1 + s2);
-
-System.out.println(salariesSum);
-
-//        // сортировка
-//        staff.stream().sorted(Comparator.comparing(Employee::getSalary)).forEach(System.out::println);
-////        обратная сортировка
-//
-//        staff.stream()
-//                .sorted(Comparator.comparing(Employee::getSalary).reversed())
-//                .forEach(System.out::println);
-//
-////        max
-//        var maxSalary = staff.stream().max(Comparator.comparing(Employee::getSalary));
-////       min
-//        Optional minSalary = staff.stream().min(Comparator.comparing(Employee::getSalary));
-//        System.out.println(maxSalary);
-//
-//        minSalary.ifPresent(System.out::println);
 
 
-        //        //стрим из arrayList
-//        Stream<Employee> filterredStaff = staff.stream().filter(el -> el.getSalary() >= 100000);
-//
-//        //стрим из массива
-//        int[] numbers = {1, 2, 4, 5, 6, 7, 8, 9};
-//
-//        IntStream filterrredNumbers = Arrays.stream(numbers).filter(el -> el > 5);
-//
-//        filterrredNumbers.forEach(System.out::println);
-//
-//        filterredStaff.forEach(System.out::println);
-//
-//        // stream из строки
-//        "аоыдлоалдываолдывоа".chars().forEach(System.out::println);
-//
-//        // бесконечные стримы
-//        Stream.iterate(1, (n) -> n +1).forEach(System.out::println);
-//        Stream.generate(() -> "ааа").forEach(System.out::println);
+        //найти максимальную зарплату среди тех кто пришел в 2017 году
+        Optional<Employee> result = staff.stream()
+                .filter(e -> e.getWorkStart()
+                        .toString().contains("2017"))
+                .max(Comparator.comparing(Employee::getSalary));
+
+        result.ifPresent(System.out::println);
     }
 
     private static ArrayList<Employee> loadStaffFromFile() {
