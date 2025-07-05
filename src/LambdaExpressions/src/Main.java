@@ -4,6 +4,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Main {
     private static String staffFile = "src/LambdaExpressions/data/staff.txt";
@@ -16,44 +18,24 @@ public class Main {
 
 
         ArrayList<Employee> staff = loadStaffFromFile();
+        //стрим из arrayList
+        Stream<Employee> filterredStaff = staff.stream().filter(el -> el.getSalary() >= 100000);
 
-//        Collections.sort(staff, new Comparator<Employee>() {
-//
-//            @Override
-//            public int compare(Employee o1, Employee o2) {
-//                int salary1 = o1.getSalary();
-//                int salary2 = o2.getSalary();
-//                if (salary1 > salary2) return 1;
-//                if (salary1 < salary2) return -1;
-//                return o1.getName().compareTo(o2.getName());
-//
-//            }
-//        });
+        //стрим из массива
+        int[] numbers = {1, 2, 4, 5, 6, 7, 8, 9};
 
+        IntStream filterrredNumbers = Arrays.stream(numbers).filter(el -> el > 5);
 
-//        Collections.sort(staff, (o1, o2) -> {
-//            int salary1 = o1.getSalary();
-//            int salary2 = o2.getSalary();
-//            if (salary1 > salary2) return 1;
-//            if (salary1 < salary2) return -1;
-//            return o1.getName().compareTo(o2.getName());
-//
-//        });
+        filterrredNumbers.forEach(System.out::println);
 
+        filterredStaff.forEach(System.out::println);
 
-        //указатель на методы пример
-        Collections.sort(staff, Comparator.comparing(Employee::getSalary));
+        // stream из строки
+        "аоыдлоалдываолдывоа".chars().forEach(System.out::println);
 
-//        for (Employee item : staff) {
-//            System.out.println(item);
-//        }
-
-        // forEach example
-        staff.forEach(el -> System.out.println(el));
-        // forEach example with lambda
-
-        staff.forEach(e -> e.setSalary(e.getSalary() + 10000));
-        staff.forEach(System.out::println);
+        // бесконечные стримы
+        Stream.iterate(1, (n) -> n +1).forEach(System.out::println);
+        Stream.generate(() -> "ааа").forEach(System.out::println);
     }
 
     private static ArrayList<Employee> loadStaffFromFile() {
