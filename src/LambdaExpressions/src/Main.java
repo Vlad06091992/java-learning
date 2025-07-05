@@ -16,26 +16,42 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Current working directory: " + System.getProperty("user.dir"));
 
-
         ArrayList<Employee> staff = loadStaffFromFile();
-        //стрим из arrayList
-        Stream<Employee> filterredStaff = staff.stream().filter(el -> el.getSalary() >= 100000);
+        // сортировка
+        staff.stream().sorted(Comparator.comparing(Employee::getSalary)).forEach(System.out::println);
+//        обратная сортировка
 
-        //стрим из массива
-        int[] numbers = {1, 2, 4, 5, 6, 7, 8, 9};
+        staff.stream()
+                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .forEach(System.out::println);
 
-        IntStream filterrredNumbers = Arrays.stream(numbers).filter(el -> el > 5);
+//        max
+        var maxSalary = staff.stream().max(Comparator.comparing(Employee::getSalary));
+//       min
+        Optional minSalary = staff.stream().min(Comparator.comparing(Employee::getSalary));
+        System.out.println(maxSalary);
 
-        filterrredNumbers.forEach(System.out::println);
+        minSalary.ifPresent(System.out::println);
 
-        filterredStaff.forEach(System.out::println);
 
-        // stream из строки
-        "аоыдлоалдываолдывоа".chars().forEach(System.out::println);
-
-        // бесконечные стримы
-        Stream.iterate(1, (n) -> n +1).forEach(System.out::println);
-        Stream.generate(() -> "ааа").forEach(System.out::println);
+        //        //стрим из arrayList
+//        Stream<Employee> filterredStaff = staff.stream().filter(el -> el.getSalary() >= 100000);
+//
+//        //стрим из массива
+//        int[] numbers = {1, 2, 4, 5, 6, 7, 8, 9};
+//
+//        IntStream filterrredNumbers = Arrays.stream(numbers).filter(el -> el > 5);
+//
+//        filterrredNumbers.forEach(System.out::println);
+//
+//        filterredStaff.forEach(System.out::println);
+//
+//        // stream из строки
+//        "аоыдлоалдываолдывоа".chars().forEach(System.out::println);
+//
+//        // бесконечные стримы
+//        Stream.iterate(1, (n) -> n +1).forEach(System.out::println);
+//        Stream.generate(() -> "ааа").forEach(System.out::println);
     }
 
     private static ArrayList<Employee> loadStaffFromFile() {
