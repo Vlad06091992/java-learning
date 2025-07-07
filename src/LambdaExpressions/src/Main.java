@@ -27,7 +27,7 @@ public class Main {
         result.ifPresent(System.out::println);
     }
 
-    private static ArrayList<Employee> loadStaffFromFile() {
+    public static ArrayList<Employee> loadStaffFromFile() {
         ArrayList<Employee> staff = new ArrayList<>();
         try {
             List<String> lines = Files.readAllLines(Paths.get(staffFile));
