@@ -14,6 +14,12 @@ public class CustomerStorage
     public void addCustomer(String data)
     {
         String[] components = data.split("\\s+");
+
+        if(components.length != 4){
+            throw new IllegalArgumentException("Wrong format. Correct format: add Василий Петров \" +\n" +
+                    "            \"vasily.petrov@gmail.com +79215637722");
+        }
+
         String name = components[0] + " " + components[1];
         storage.put(name, new Customer(name, components[3], components[2]));
     }
