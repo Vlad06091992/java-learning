@@ -1,4 +1,4 @@
-package eight_exceptions.ConsoleCustomerList.src;
+package eight_exceptions.src;
 
 public class Customer
 {

@@ -1,10 +1,14 @@
-package eight_exceptions.ConsoleCustomerList.src;
+package eight_exceptions.src;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 
 public class CustomerStorage
 {
-    private HashMap<String, Customer> storage;
+    private final HashMap<String, Customer> storage;
 
     public CustomerStorage()
     {
@@ -22,16 +26,21 @@ public class CustomerStorage
 
         String name = components[0] + " " + components[1];
         storage.put(name, new Customer(name, components[3], components[2]));
+        System.out.println(storage.toString());
     }
 
-    public void listCustomers()
-    {
+    public void listCustomers() throws IOException {
         storage.values().forEach(System.out::println);
     }
 
-    public void removeCustomer(String name)
+    public void removeCustomer(String name) throws Exception
     {
-        storage.remove(name);
+        if(storage.containsKey(name)){
+            storage.remove(name);
+        } else {
+            throw new Exception("Нет такого пользователя");
+        }
+
     }
 
     public int getCount()
