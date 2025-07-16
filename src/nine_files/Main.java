@@ -1,6 +1,7 @@
-package files;
+package nine_files;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.Arrays;
 
 public class Main {
@@ -24,5 +25,7 @@ public class Main {
         newFolder.mkdir();
         //удалить папку
         newFolder.delete();
+
+
     }
 }
