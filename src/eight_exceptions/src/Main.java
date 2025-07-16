@@ -31,7 +31,6 @@ public class Main {
                 String command = scanner.nextLine();
                 String[] tokens = command.split("\\s+", 2);
                 validateUserInput(tokens);
-//
                 switch (tokens[0]) {
                     case "add" -> executor.addCustomer(tokens[1]);
                     case "list" -> executor.listCustomers();
